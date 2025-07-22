@@ -6,3 +6,7 @@ const database = {
         { id: 4, location: "Antwerp, Belgium", volume: "12.04" }
     ]
 }
+
+export const getDocks = () => {
+    return structuredClone(database.docks)
+}
