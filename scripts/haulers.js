@@ -31,11 +31,14 @@ document.addEventListener(
 )
 
 export const HaulersList = () => {
-    const haulers = getHaulers()
+    const haulersObj = getHaulers()
+    const haulers = haulersObj.sort((a,b)=> a.name.toLowerCase().localeCompare(b.name.toLocaleLowerCase()))
 
     let haulersHTML = '<ul>'
 
     for (const hauler of haulers) {
+        // haulers.push(hauler.name)
+        // haulers.sort()
         haulersHTML += `
         <li data-type="hauler" data-haulerid="${hauler.id}">${hauler.name}</li>
         `

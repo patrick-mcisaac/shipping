@@ -1,11 +1,12 @@
 import { getCargoShips, getHaulers } from "./database.js";
 
 export const CargoList = () => {
-    const cargoShips = getCargoShips()
+    const cargoShipsObj = getCargoShips()
+    const cargoShips = cargoShipsObj.sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
 
     let shipHTML = "<ul>"
 
-    for (const ship of cargoShips) {
+    for (const ship of cargoShipsObj) {
         shipHTML+= `
         <li data-type="cargo-ship"
             data-hauler-id="${ship.shipId}"
